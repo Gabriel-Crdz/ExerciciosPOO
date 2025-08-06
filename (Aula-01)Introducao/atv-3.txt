@@ -1,0 +1,63 @@
+# ABSTRAÇÃO ESPECIFICADA
+
+# Defina uma classe Carro para o sistema de uma revenda de automoveis
+classe Carro{
+    marca;
+    cor;
+    modelo;
+    anoFabricacao;
+    kilometragem;
+    preco;
+    tipoCombustivel;
+    potencia;
+    tamanho;
+    consumo;
+    largura;
+    altura;
+    tipoMotor;
+    tipoCambio;
+    tipoPneus;
+    tipoTracao;
+    comprimento;
+    tipoDirecao;
+    tipoSuspensao;
+    possuiModificacao;
+}
+
+# Defina uma classe Carro para o sitema de um lava car
+classe Carro{
+    marca;
+    modelo;
+    cor;
+    estadoSujeiraExterna;
+    limpezaInterna;
+    estadoSujeiraInterna;
+    identificacaoDono;
+    contatoDono;
+}
+
+# Defina uma classe Carro para o sistema de uma montadora de automoveis
+classe Carro{
+    marca;
+    cor;
+    modeloGeral;
+    modeloMotor;
+    modeloSuspensao;
+    modeloTracao;
+    modeloCambio;
+    modeloVolante;
+    tipoBateria;
+    modeloPneus;
+    largura;
+    altura;
+    comprimento;
+    tipoAcento;
+    tipoParaprisa;
+    modeloFreio;
+    modeloRetrovisor;
+    modeloFarois;
+    tipoBuzina;
+    modeloMarcha;
+    estiloPainel;
+    modeloLimpadorParaprisa;
+}

@@ -1,0 +1,35 @@
+# ATRIBUTOS & METODOS
+
+# Defina os metodos e atributos para a classe "televisor"
+classe Televisor{
+    TamanhoTela;
+    Entradas;
+    SaidaAudio;
+
+    metodos{
+        ligar();
+        desligar();
+        aumentarVolume();
+        diminuirVolume();
+        trocarCanal();
+        conectarPeriferico();
+    }
+}
+
+# Defina os metodos e atributos para a classe "telefone"
+classe Telefone{
+    TamanhoTela;
+    TouchSreen;
+    SaidaAudio;
+    Microfone;
+    Camera;
+
+    metodos{
+        ligar();
+        desligar();
+        aumentarVolume();
+        diminuirVolume();
+        conectarRede();
+        conectarPeriferico();
+    }
+}

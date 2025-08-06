@@ -1,0 +1,28 @@
+# ABSTRAÇÃO GERAL
+
+# Quantas caracteristicas uma cadeira tem?
+-(listar ao menos 10 atributos de uma cadeira, e quantas operações conseguir)
+
+classe cadeira{
+    marca;
+    materialPrincipal;
+    materialSecundario;
+    formato;
+    quantidadePes;
+    ExpessuraPes;
+    AlturaPes;
+    encosto;
+    tipoEncosto;
+    tipoAcento;
+    cor;
+    estilo;
+    tipoUso;
+    apoioBraço;
+    movel;
+
+    metodos{
+        ajustarAlturaEncosto();
+        ajustarAngulo();
+        ajustarAltura();
+    }
+}
