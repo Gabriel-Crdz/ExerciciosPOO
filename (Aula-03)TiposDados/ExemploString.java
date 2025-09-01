@@ -29,7 +29,6 @@ public class ExemploString {
         String dominio = str3.substring(str3.indexOf("@") + 1, str3.length());
         System.out.println("Dominio: " + dominio.toUpperCase() /* transformar para maiusculas */);
 
-
         /* Converter para String */
         int valor = 50;
         str3 = String.valueOf(valor); // metodo universal
