@@ -1,8 +1,8 @@
 public class Voo {
-    private String paisDestino;
-    private String paisOrigem;
-    private String dataSaida;
-    private String dataChegada;
+    private int numVoo;
+    private String destino;
+    private String origem;
+    private String dataEmbarque;
     private int qtdPassageiros;
     private Passageiro[] vetorPassageiros;
 
@@ -10,43 +10,43 @@ public class Voo {
         this.vetorPassageiros = new Passageiro[50];
     }
 
-    /* Getter, Setter paisDestino */
-    public String getPaisDestino() {
-        return paisDestino;
+    /* Getter, Setter numVoo */
+    public int getNumVoo() {
+        return numVoo;
     }
-    public void setPaisDestino(String paisDestino) {
-        this.paisDestino = paisDestino;
+    public void setNumVoo(int numVoo) {
+        this.numVoo = numVoo;
+    }
+
+    /* Getter, Setter dataEmbarque */
+    public String getDataEmbarque() {
+        return dataEmbarque;
+    }
+    public void setDataEmbarque(String dataEmbarque) {
+        this.dataEmbarque = dataEmbarque;
+    }
+
+    /* Getter, Setter paisDestino */
+    public String getDestino() {
+        return destino;
+    }
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     /* Getter, Setter paisOrigem */
-    public String getPaisOrigem() {
-        return paisOrigem;
+    public String getOrigem() {
+        return origem;
     }
-    public void setPaisOrigem(String paisOrigem) {
-        this.paisOrigem = paisOrigem;
-    }
-
-    /* Getter, Setter dataSaida */
-    public String getDataSaida() {
-        return dataSaida;
-    }
-    public void setDataSaida(String dataSaida) {
-        this.dataSaida = dataSaida;
-    }
-
-    /* Getter, Setter dataChegada */
-    public String getDataChegada() {
-        return dataChegada;
-    }
-    public void setDataChegada(String dataChegada) {
-        this.dataChegada = dataChegada;
+    public void setOrigem(String origem) {
+        this.origem = origem;
     }
 
     /* Getter, Setter numPassageiros */
-    public int getNumPassageiros() {
+    public int getQtdPassageiros() {
         return qtdPassageiros;
     }
-    public void setNumPassageiros(int qtdPassageiros) {
+    public void setQtdPassageiros(int qtdPassageiros) {
         this.qtdPassageiros = qtdPassageiros;
     }
 

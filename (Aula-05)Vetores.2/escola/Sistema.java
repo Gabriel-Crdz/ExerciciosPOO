@@ -31,16 +31,22 @@ public class Sistema {
             opcao = this.reader.readLine();
             switch(opcao) {
                 case "1":
-                    // Chamarando o metodo de cadastro da turma
+                    // Chamando o metodo de cadastro da turma
                     CadastrarTurma();
                     break;
 
                 case "2":
-                    // Chamar o metodo que lista as turmas
+                    // Chamando o metodo que lista as turmas
+                    listarTurmas();
                     break;
 
                 case "3":
-                    // Chamar o metodo que consulta uma turma
+                    // Chamando o metodo que consulta uma turma
+                    consultarTurma();
+                    break;
+
+                case "4":
+                    System.out.println("SAINDO...");
                     break;
 
                 default:
@@ -89,6 +95,39 @@ public class Sistema {
             t.setAluno(aluno);
         }
         e1.setTurma(t);
+    }
+    private void listarTurmas(){
+        System.out.println("-----------------------");
+        System.out.println("Relatório de turmas");
+        for(int i = 0; i < e1.getQtdTurmas(); i++){
+            Turma t = e1.getTurma(i);
+            System.out.println("Número: " + t.getNumTurma() + " - Curso: " + t.getNomeCurso() + " - Ano: " + t.getAnoIngresso() + " - Qtde de alunos: " + t.getQtdAlunos());
+        }
+    }
+    private void consultarTurma() throws Exception{
+        System.out.println("--------------------");
+        System.out.println("Consulta de Turma");
+        System.out.println("Número da Turma");
+        int NumTurma = Integer.parseInt(reader.readLine());
+        boolean achou = false;
+
+        for(int i = 0; i < e1.getQtdTurmas(); i++){
+            Turma t = e1.getTurma(i);
+            if(t.getNumTurma() == NumTurma){
+                System.out.println("[ALUNOS DA TURMA]");
+                int posAluno = 0;
+                while(t.getAluno(posAluno) != null){
+                    String linha = "Nome: " + t.getAluno(posAluno).getNome();
+                    linha += " - Matrícula: " + t.getAluno(posAluno).getMatricula();
+                    linha += " - Media: " + t.getAluno(posAluno).calcularMedia();
+                    System.out.println(linha);
+                    posAluno++;
+                }
+                achou = true;
+                break;
+            }
+        }
+        if(!achou){ System.out.println("Turma não encontrada"); }
     }
 }
 

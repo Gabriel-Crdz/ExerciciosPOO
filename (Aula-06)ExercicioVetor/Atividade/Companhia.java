@@ -1,7 +1,7 @@
 public class Companhia {
     private String nome;
     private String tel;
-    private int numVoos;
+    private int qtdVoos;
     private Voo vetorVoos[];
 
     public Companhia(){
@@ -24,12 +24,12 @@ public class Companhia {
         this.tel = tel;
     }
 
-    /* Getter, Setter NumVoos */
-    public int getNumVoos() {
-        return numVoos;
+    /* Getter, Setter qtdVoos */
+    public int getQtdVoos() {
+        return qtdVoos;
     }
-    public void setNumVoos(int numVoos) {
-        this.numVoos = numVoos;
+    public void setQtdVoos(int qtdVoos) {
+        this.qtdVoos = qtdVoos;
     }
 
     public Voo getVoo(int pos) {
@@ -37,7 +37,7 @@ public class Companhia {
     }
 
     public void setVoos(Voo v) {
-        this.vetorVoos[numVoos] = v;
+        this.vetorVoos[qtdVoos] = v;
     }
     
 }
