@@ -57,6 +57,10 @@ public class Voo {
     public void setPassageiro(Passageiro pax) {
         this.vetorPassageiros[qtdPassageiros] = pax; // Salva passageiro no final(indicado pela variavel qtdAlunos) do vetor
     }
+    
+    public int getAssentosLivres(){ 
+        return 50 - qtdPassageiros;
+    }
 
     
 }

@@ -36,7 +36,7 @@ public class Companhia {
         return vetorVoos[pos];
     }
 
-    public void setVetorVoos(Voo v) {
+    public void setVoos(Voo v) {
         this.vetorVoos[numVoos] = v;
     }
     
