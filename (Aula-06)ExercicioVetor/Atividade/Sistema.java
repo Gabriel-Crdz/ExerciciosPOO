@@ -50,6 +50,7 @@ public class Sistema {
                 
                 case "4":
                     // Chamar o metodo para listar todos os passageiros de um determinado vôo(dados do vôo e dos passageiros)
+                    consultarVoo();
                     break;
 
                 case "5":
@@ -84,7 +85,7 @@ public class Sistema {
 
         /* Dados dos Passageiros */
         if(numCadastros < 50){ // o numero de cadastros deve ser menor que o total de vagas
-            System.out.println("+==CADASTROS DOS PASSAGEIROS=");
+            System.out.println("+==CADASTROS DO VÔO=");
             for(int i = 0; i < numCadastros; i++){
                 Passageiro pax = new Passageiro(); // Gera um novo registro do passageiro
                 System.out.println(""); // Print apenas para espaçamento
@@ -179,6 +180,43 @@ public class Sistema {
             }
         }
         else{ // Mensagem para caso não haja vôos cadastrados
+            System.out.println("----------------------------");
+            System.out.println("ERRO: Nenhum vôo cadastrado!");
+            System.out.println("----------------------------");
+        }
+    }
+
+    private void consultarVoo() throws Exception{
+        if(c1.getQtdVoos() != 0){
+            System.out.println("+=CONSULTA DE VÔO=");
+            System.out.print("|= Informe o numero do vôo: ");
+            int numVoo = Integer.parseInt(reader.readLine());
+            boolean achou = false;
+
+            for(int i = 0; i < c1.getQtdVoos(); i++){
+                Voo voo = c1.getVoo(i);
+                if(voo.getNumVoo() == numVoo){
+                    System.out.println("=PASSAGEIROS DO VÔO=");
+                    int posPax = 0;
+                    while(voo.getPassageiro(posPax) != null){
+                        System.out.println("+=" + posPax+1 + " Passageiro:");
+                        System.out.println("| Nome: " + voo.getPassageiro(posPax).getNome());
+                        System.out.println("| Passaporte: " + voo.getPassageiro(posPax).getPassaporte());
+                        System.out.println("| Peso Bagagem: " + voo.getPassageiro(posPax).getPesoMala());
+                        System.out.println("| Telefone: " + voo.getPassageiro(posPax).getTel());
+                        System.out.println("| Assento: " + posPax);
+                        posPax++;
+                    }
+                    achou = true;
+                    break;
+                }
+            }
+            if(!achou){ 
+            System.out.println("---------------------");
+            System.out.println("ERRO: Vôo localizado!");
+            System.out.println("---------------------");}
+        }
+        else{
             System.out.println("----------------------------");
             System.out.println("ERRO: Nenhum vôo cadastrado!");
             System.out.println("----------------------------");
