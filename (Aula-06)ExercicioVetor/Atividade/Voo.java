@@ -8,6 +8,7 @@ public class Voo {
 
     public Voo(){
         this.vetorPassageiros = new Passageiro[50];
+        this.qtdPassageiros = 0;
     }
 
     /* Getter, Setter numVoo */
@@ -55,7 +56,16 @@ public class Voo {
         return vetorPassageiros[pos]; // Retorna o passageiro na posição do vetor indicada
     }
     public void setPassageiro(Passageiro pax) {
-        this.vetorPassageiros[qtdPassageiros] = pax; // Salva passageiro no final(indicado pela variavel qtdAlunos) do vetor
+        if(qtdPassageiros < 50){ // Limita o numero de cadastros
+            this.vetorPassageiros[qtdPassageiros] = pax; // Salva passageiro no final do vetor
+            this.qtdPassageiros++; // Incrementa na qtd total(variavel de controle do vetor)
+        }
+        else{
+            System.out.println("--------------------------------------");
+            System.out.println("ERRO: Limite maximo atingido!");
+            System.out.println("ERRO: O vôo só comporta 50 passageiros");
+            System.out.println("--------------------------------------");
+        }
     }
     
     public int getAssentosLivres(){ 

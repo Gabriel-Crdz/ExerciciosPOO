@@ -6,6 +6,7 @@ public class Companhia {
 
     public Companhia(){
         this.vetorVoos = new Voo[10];
+        this.qtdVoos = 0;
     }
 
     /* Getter, Setter Nome */
@@ -29,15 +30,28 @@ public class Companhia {
         return qtdVoos;
     }
     public void setQtdVoos(int qtdVoos) {
-        this.qtdVoos = qtdVoos;
+        if(this.qtdVoos < 10){
+            this.qtdVoos += qtdVoos;
+        }
     }
 
     public Voo getVoo(int pos) {
         return vetorVoos[pos];
     }
 
-    public void setVoos(Voo v) {
-        this.vetorVoos[qtdVoos] = v;
+    public void setVoos(Voo voo) {
+         if(voo == null){ //Verifica se o voo não é nulo
+            System.out.println("Voo inválido");
+            return;
+        }
+
+        if(qtdVoos < 10){ //Verifica se ainda a espaço para o voo
+            this.vetorVoos[qtdVoos] = voo;
+            qtdVoos++;
+
+        } else{
+            System.out.println("Limite de Vôos atingido");
+        }
     }
     
 }
