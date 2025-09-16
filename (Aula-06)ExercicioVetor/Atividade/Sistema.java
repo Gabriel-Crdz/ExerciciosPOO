@@ -107,7 +107,6 @@ public class Sistema {
 
                 voo.setPassageiro(pax); // Registra os dados do passageiro
             }
-            //voo.setQtdPassageiros(numCadastros); // Registra a quantidade de passageiros cadastrados
             c1.setVoos(voo); // Registra todos os dados do voo
         }
         else{
