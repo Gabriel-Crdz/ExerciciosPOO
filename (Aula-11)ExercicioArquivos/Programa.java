@@ -10,9 +10,6 @@ public class Programa {
         
         System.out.println("+=+=APLICANDO MARGEM DE LUCRO=+=+");
         
-        System.err.print("|= Informe a margem de lucro: ");
-        float margem = Float.valueOf(reader.readLine());
-
         System.out.print("|= Informe o nome do arquivo de entrada: ");
         String nomeLeitura = reader.readLine();
         if(nomeLeitura.equals("")) nomeLeitura = "preco_custo.csv";
@@ -22,7 +19,11 @@ public class Programa {
         String nomeEscrita = reader.readLine();
         if(nomeEscrita.equals("")) nomeEscrita = "preco_venda.csv";
         BufferedWriter arqEscrita = new BufferedWriter(new FileWriter(nomeEscrita));
+
         BufferedWriter arqCompra = new BufferedWriter(new FileWriter("comprar.csv"));
+
+        System.err.print("|= Informe a margem de lucro: ");
+        float margem = Float.valueOf(reader.readLine());
 
         String linhaLeitura = arqLeitura.readLine();
         String linhaEscrita = "codigo;produto;preco_venda"; // Cabeçalho
@@ -35,7 +36,7 @@ public class Programa {
 
             String codigo = campos[0];
             int estoque = Integer.parseInt(campos[1]);
-            String nome = campos[2];
+            String nome = campos[2];System.err.println("");
             String categoria = campos[4];
 
             /* Calculo do preco de venda do produto */
@@ -56,7 +57,8 @@ public class Programa {
                 arqCompra.newLine();
             }
         }
-        arqLeitura.close(); // Fecha arquivo
+        /* Fechando os arquivos */
+        arqLeitura.close(); 
         arqEscrita.close();
         arqCompra.close();
     }
