@@ -36,7 +36,7 @@ public class Programa {
 
             String codigo = campos[0];
             int estoque = Integer.parseInt(campos[1]);
-            String nome = campos[2];System.err.println("");
+            String nome = campos[2];
             String categoria = campos[4];
 
             /* Calculo do preco de venda do produto */
@@ -51,7 +51,7 @@ public class Programa {
 
             /* Arquivo comprar */
             if(estoque < 10){
-                String preco = String.format("%.2f", precoCusto);
+                String preco = String.format("%.2f", precoCusto); // Linha desnecessaria
                 String linhaCompra = codigo + ";" + estoque + ";" + nome + ";" + preco + ";" + categoria;
                 arqCompra.write(linhaCompra);
                 arqCompra.newLine();
