@@ -1,27 +1,27 @@
 codigo;estoque;nome_produto;preco_custo;categoria
-001;5;Camiseta Básica;49.9;Vestuário
-002;0;Calça Jeans;129.9;Vestuário
-003;12;Tênis Esportivo;299.9;Calçados
+001;5;Camiseta Básica;49.5;Vestuário
+002;0;Calça Jeans;129.25;Vestuário
+003;12;Tênis Esportivo;299.6;Calçados
 004;5;Boné de Algodão;39.9;Acessórios
 005;80;Meia Social;19.9;Vestuário
 006;5;Jaqueta de Couro;499.9;Vestuário
-007;10;Relógio Digital;199.9;Acessórios
+007;10;Relógio Digital;199.5;Acessórios
 008;8;Mochila Escolar;149.9;Bolsas e Mochilas
 009;70;Carteira de Couro;89.9;Acessórios
 010;55;Chinelo de Borracha;29.9;Calçados
-011;5;Blusa de Moletom;159.9;Vestuário
+011;5;Blusa de Moletom;159.10;Vestuário
 012;20;Óculos de Sol;249.9;Acessórios
 013;90;Cinto de Couro;79.9;Acessórios
 014;18;Sapato Social;349.9;Calçados
 015;34;Camisa Polo;89.9;Vestuário
 016;25;Vestido Floral;179.9;Vestuário
 017;40;Saia Jeans;99.9;Vestuário
-018;6;Chaveiro Metálico;14.9;Acessórios
-019;75;Luvas de Inverno;59.9;Vestuário
+018;6;Chaveiro Metálico;14.5;Acessórios
+019;75;Luvas de Inverno;59.5;Vestuário
 020;50;Tênis Casual;229.9;Calçados
-021;33;Bolsa de Ombro;199.9;Bolsas e Mochilas
+021;33;Bolsa de Ombro;199.5;Bolsas e Mochilas
 022;4;Camisa Social;119.9;Vestuário
-023;38;Bermuda de Sarja;89.9;Vestuário
+023;38;Bermuda de Sarja;89.5;Vestuário
 024;9;Gorro de Lã;39.9;Acessórios
 025;58;Sandália Feminina;159.9;Calçados
 026;8;Casaco de Lã;249.9;Vestuário

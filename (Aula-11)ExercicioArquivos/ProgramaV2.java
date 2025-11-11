@@ -5,8 +5,8 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 
 public class ProgramaV2 {
+    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); // Declarando o reader com atributo para todos os metodos consegurem usar
     public static void main(String[] args) throws Exception{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int opc;
         
         System.out.println("=====TABELAS DE PREÇOS=====");
@@ -47,8 +47,6 @@ public class ProgramaV2 {
 
     /* Opção 1 */
     public static String inserirEntrada() throws Exception{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
         System.out.print("|= Informe o nome do arquivo de entrada: ");
         String nomeEntrada = reader.readLine(); // Lendo o nome de entrada
 
@@ -81,7 +79,6 @@ public class ProgramaV2 {
 
     /* Opcção 3 */
     public static void gerarVenda(String nomeEntrada) throws Exception{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedReader entrada = new BufferedReader(new FileReader(nomeEntrada)); // Declara um Buffer de leitura com o nome da entrada
 
         System.out.println("+=====PREÇO DE VENDAS=====");
@@ -125,7 +122,6 @@ public class ProgramaV2 {
     }
 
     public static void gerarCompra(String nomeEntrada) throws Exception{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedReader entrada = new BufferedReader(new FileReader(nomeEntrada)); // Declara um Buffer de leitura com o nome da entrada
         BufferedWriter compra = new BufferedWriter(new FileWriter("comprar.csv")); // Declara um buffer de escrita
 
