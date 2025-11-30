@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Transportadora implements ImportacaoArquivos {
-    
     private static final int tamanho = 10; // Constante para definir o tamanho
     
     /* Atributos */
@@ -22,9 +21,9 @@ public class Transportadora implements ImportacaoArquivos {
     /* Metodos da Interface */
 
     public String carregarConfiguracoes(String arqConfig){
-
+        /* TO DO: salvar os dados de configuração */
     }
-    
+
     public String importarDados(String arqDadosEntrada){
         try{ // Tenta ler o arquivo
             BufferedReader entrada = new BufferedReader(new FileReader(arqDadosEntrada)); // Buffer de leitura
@@ -53,7 +52,7 @@ public class Transportadora implements ImportacaoArquivos {
                     this.setEncomendaExp(encomExp); // Salva a encomenda expressa
                 }
             }
-            entrada.close();
+            entrada.close(); // Fechamento do arquivo
             return "Sucesso ao importar todos os dados!"; // Retorna uma msg de sucesso se todo ocorrre bem
         }
         catch(Exception e){ // Se não conseguir mostra o erro
@@ -69,7 +68,7 @@ public class Transportadora implements ImportacaoArquivos {
         if(qtdEncomendas < tamanho){
             this.vetorEncomendas[qtdEncomendas] = encom;
             this.qtdEncomendas++;
-        }
+        }    
     }
     
     /* Getter, Setter: encomendaExp */

@@ -1,14 +1,26 @@
 public class EncomendaExp extends Encomenda {
     /* Atributos */
-    String prazoEntrega;
+    int prazoEntrega;
     String fone;
 
     /* Metodos */
+
+    public double calcularFrete(float preco){
+        double frete = 0;
+        if(prazoEntrega >= 3){
+            frete = preco * this.getPeso();
+        }
+        else{
+            frete = (preco * this.getPeso()) * 1.25;
+        }
+        return frete;
+    }
+
     /* Getter, Setter: prazoEntrega */
-    public String getPrazoEntrega() {
+    public int getPrazoEntrega() {
         return prazoEntrega;
     }
-    public void setPrazoEntrega(String prazoEntrega) {
+    public void setPrazoEntrega(int prazoEntrega) {
         this.prazoEntrega = prazoEntrega;
     }
 

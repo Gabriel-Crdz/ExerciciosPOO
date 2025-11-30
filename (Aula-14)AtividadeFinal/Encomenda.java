@@ -5,6 +5,12 @@ public class Encomenda {
     private float peso;
 
     /* Metodos */
+
+    public double calcularFrete(float preco){
+        double frete = peso * preco;
+        return frete;
+    }
+
     /* Getter, Setter: numPedido */
     public int getNumPedido() {
         return numPedido;
