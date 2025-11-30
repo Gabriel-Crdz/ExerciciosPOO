@@ -39,6 +39,7 @@ public class Transportadora implements ImportacaoArquivos {
                     encom.setNumPedido(Integer.parseInt(campos[0]));
                     encom.setDataPostagem(campos[1]);
                     encom.setPeso(Float.valueOf(campos[4]));
+                    /* TO DO: validar as encomendas para so inserir quando a espaço no vetor */
                     this.setEncomenda(encom); // Salva a encomenda normal
                 }
                 else if(siglaEncom.equals("EE")){ // Se entao for "EE" é uma encomenda expressa
@@ -49,6 +50,7 @@ public class Transportadora implements ImportacaoArquivos {
                     encomExp.setPrazoEntrega(Integer.parseInt(campos[3]));
                     encomExp.setPeso(Float.valueOf(campos[4]));
                     encomExp.setFone(campos[5]);
+                    /* TO DO: validar as encomendas para so inserir quando a espaço no vetor */
                     this.setEncomendaExp(encomExp); // Salva a encomenda expressa
                 }
             }
