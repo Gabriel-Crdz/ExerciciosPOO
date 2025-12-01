@@ -2,13 +2,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Transportadora implements ImportacaoArquivos {
-    private static final int tamanho = 10; // Constante para definir o tamanho
+    private static int tamanho = 10; // Constante para definir o tamanho
     
     /* Atributos */
     private Encomenda[] vetorEncomendas;
     private EncomendaExp[] vetorEncomendasExp;
     private int qtdEncomendas;
     private int qtdEncomendasExp;
+    private float precoKg;
+    private float precoKgExp;
 
     /* Metodos */
     public Transportadora(){ // Metodo Construtor
@@ -20,11 +22,30 @@ public class Transportadora implements ImportacaoArquivos {
 
     /* Metodos da Interface */
 
-    public String carregarConfiguracoes(String arqConfig){
-        /* TO DO: salvar os dados de configuração */
+    public void carregarConfiguracoes(String arqConfig){
+        try{
+            BufferedReader config = new BufferedReader(new FileReader(arqConfig));
+            String linha = config.readLine();
+
+            while((linha = config.readLine()) != null){
+                String[] campos = linha.split(";");
+                String siglaEncom = campos[1];
+
+                if(siglaEncom.equals("EN")){
+                    this.setPrecoKg(Float.valueOf(campos[2]));
+                }
+                else if(siglaEncom.equals("EE")){
+                    this.setPrecoKgExp(Float.valueOf(campos[2]));
+                }
+            }
+            config.close();
+        }
+        catch(Exception e){ // Se não conseguir mostra o erro
+            System.out.println("ERRO: " + e.getMessage());
+        }
     }
 
-    public String importarDados(String arqDadosEntrada){
+    public void importarDados(String arqDadosEntrada){
         try{ // Tenta ler o arquivo
             BufferedReader entrada = new BufferedReader(new FileReader(arqDadosEntrada)); // Buffer de leitura
             String linha = entrada.readLine();
@@ -33,7 +54,7 @@ public class Transportadora implements ImportacaoArquivos {
                 String[] campos = linha.split(";");
                 String siglaEncom = campos[2]; // Pega o tipo de encomenda pela sigla
 
-                if(siglaEncom.equals("EN")){ // Se a sigla for "EN" e uma encomenda normal
+                if(siglaEncom.equals("EN") && getQtdEncomendas() < tamanho){ // Se a sigla for "EN" e uma encomenda normal
                     /* Registra os dados da encomenda Normal */
                     Encomenda encom = new Encomenda();
                     encom.setNumPedido(Integer.parseInt(campos[0]));
@@ -42,7 +63,7 @@ public class Transportadora implements ImportacaoArquivos {
                     /* TO DO: validar as encomendas para so inserir quando a espaço no vetor */
                     this.setEncomenda(encom); // Salva a encomenda normal
                 }
-                else if(siglaEncom.equals("EE")){ // Se entao for "EE" é uma encomenda expressa
+                else if(siglaEncom.equals("EE") && getQtdEncomendasExp() < tamanho){ // Se entao for "EE" é uma encomenda expressa
                     /* Registra os dados da encomenda Expressa */
                     EncomendaExp encomExp = new EncomendaExp();
                     encomExp.setNumPedido(Integer.parseInt(campos[0]));
@@ -53,12 +74,15 @@ public class Transportadora implements ImportacaoArquivos {
                     /* TO DO: validar as encomendas para so inserir quando a espaço no vetor */
                     this.setEncomendaExp(encomExp); // Salva a encomenda expressa
                 }
+                else{
+                    System.out.println("ERRO: pedido numero " + campos[0] + " não foi registrado!");
+                }
             }
             entrada.close(); // Fechamento do arquivo
-            return "Sucesso ao importar todos os dados!"; // Retorna uma msg de sucesso se todo ocorrre bem
+            System.out.println("Sucesso ao importar todos os dados!"); // Retorna uma msg de sucesso se todo ocorrre bem
         }
         catch(Exception e){ // Se não conseguir mostra o erro
-            return "Erro ao ler arquivo, motivo: " + e.getMessage();
+            System.out.println("ERRO: " + e.getMessage());
         }
     }
 
@@ -70,7 +94,10 @@ public class Transportadora implements ImportacaoArquivos {
         if(qtdEncomendas < tamanho){
             this.vetorEncomendas[qtdEncomendas] = encom;
             this.qtdEncomendas++;
-        }    
+        }
+        else{
+            System.out.println("batata");
+        }
     }
     
     /* Getter, Setter: encomendaExp */
@@ -100,11 +127,19 @@ public class Transportadora implements ImportacaoArquivos {
         this.qtdEncomendasExp = qtdEncomendasExp;
     }
     
-    public int getEstoqueLivreEncom(){
-        return tamanho - qtdEncomendas;
+    /* Getter, Setter: precoKg */
+    public float getPrecoKg() {
+        return precoKg;
+    }
+    public void setPrecoKg(float precoKg) {
+        this.precoKg = precoKg;
     }
 
-    public int getEstoqueLivreEncomExp(){
-        return tamanho - qtdEncomendasExp;
+    /* Getter, Setter: precoKgExp */
+    public float getPrecoKgExp() {
+        return precoKgExp;
+    }
+    public void setPrecoKgExp(float precoKgExp) {
+        this.precoKgExp = precoKgExp;
     }
 }
