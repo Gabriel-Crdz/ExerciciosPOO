@@ -58,7 +58,8 @@ public class Sistema {
     public static void listarEncomNormais(Transportadora t){
         for(int i = 0; i < t.getQtdEncomendas(); i++){
             Encomenda encom = t.getEncomenda(i);
-            System.out.println(encom.getNumPedido());
+            double frete = encom.calcularFrete(t.getPrecoKg());
+            System.out.printf("%5d | %5.2f | %5.2f\n", encom.getNumPedido(), encom.getPeso(), frete);
         }
     }
 }
