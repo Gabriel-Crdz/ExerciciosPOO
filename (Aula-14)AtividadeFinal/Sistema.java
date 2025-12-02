@@ -1,19 +1,25 @@
-import java.io.InputStreamReader;
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 public class Sistema {
-    private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws Exception{
         Transportadora t = new Transportadora();
         
         System.out.println("+=====TRANSPORTADORA=====");
-        System.out.print("|= Informe o arquivo de configuração: ");
-        String arqConfig = input.readLine();
-        t.carregarConfiguracoes(arqConfig); // Le e carrega os dados de config
         
+        Boolean carregar = false;
+        while(carregar == false){   
+            System.out.print("|= Informe o arquivo de configuração: ");
+            String arqConfig = input.readLine();
+            carregar = t.carregarConfiguracoes(arqConfig); // Le e carrega os dados de config
+        }
         int opc = -1;
         do{ // Entra no laço para mostrar o menu
             opc = menu(); // Chama o metodo com opçoes
-            switch (opc){
+
+            new ProcessBuilder("clear").inheritIO().start().waitFor(); // Limpa o terminal
+
+            switch(opc){
                 case 1:
                     System.out.println("+=====IMPORTANDO DADOS=====");
                     System.out.print("|= Informe o nome do arquivo: ");
@@ -24,7 +30,7 @@ public class Sistema {
                     listarEncomNormais(t);
                 break;
                 case 3:
-                    // listarEncomExp();
+                    listarEncomExp(t);
                 break;
                 default:
                     System.out.println("SAINDO...");
@@ -56,10 +62,20 @@ public class Sistema {
     }
 
     public static void listarEncomNormais(Transportadora t){
+        System.out.printf("%10s | %5s | %5s" , "Nº Pedido" , "Peso", "Frete\n");
         for(int i = 0; i < t.getQtdEncomendas(); i++){
             Encomenda encom = t.getEncomenda(i);
             double frete = encom.calcularFrete(t.getPrecoKg());
-            System.out.printf("%5d | %5.2f | %5.2f\n", encom.getNumPedido(), encom.getPeso(), frete);
+            System.out.printf("%10d | %5.2f | %5.2f\n", encom.getNumPedido(), encom.getPeso(), frete);
+        }
+    }
+
+    public static void listarEncomExp(Transportadora t){
+        System.out.printf("%10s | %5s | %5s" , "Nº Pedido" , "Peso", "Frete\n");
+        for(int i = 0; i < t.getQtdEncomendasExp(); i++){
+            EncomendaExp encomExp = t.getEncomendaExp(i);
+            double frete = encomExp.calcularFrete(t.getPrecoKg());
+            System.out.printf("%10d | %5.2f | %5.2f\n", encomExp.getNumPedido(), encomExp.getPeso(), frete);
         }
     }
 }

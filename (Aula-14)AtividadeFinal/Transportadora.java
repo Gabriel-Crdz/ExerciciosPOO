@@ -21,10 +21,9 @@ public class Transportadora implements ImportacaoArquivos {
     }
 
     /* Metodos da Interface */
-
-    public void carregarConfiguracoes(String arqConfig){
+    public Boolean carregarConfiguracoes(String arqConfig){
         try{
-            BufferedReader config = new BufferedReader(new FileReader(arqConfig));
+            BufferedReader config = new BufferedReader(new FileReader("arquivos/" + arqConfig + ".csv"));
             String linha = config.readLine();
 
             while((linha = config.readLine()) != null){
@@ -39,15 +38,18 @@ public class Transportadora implements ImportacaoArquivos {
                 }
             }
             config.close();
+            System.out.println("SUCESSO: arquivo encontrado!");
+            return true;
         }
         catch(Exception e){ // Se não conseguir mostra o erro
             System.out.println("ERRO: " + e.getMessage());
+            return false;
         }
     }
 
     public void importarDados(String arqDadosEntrada){
         try{ // Tenta ler o arquivo
-            BufferedReader entrada = new BufferedReader(new FileReader(arqDadosEntrada)); // Buffer de leitura
+            BufferedReader entrada = new BufferedReader(new FileReader("arquivos/" + arqDadosEntrada + ".csv")); // Buffer de leitura
             String linha = entrada.readLine();
 
             while((linha = entrada.readLine()) != null){ // Laço para percorre toda a tabela de dados

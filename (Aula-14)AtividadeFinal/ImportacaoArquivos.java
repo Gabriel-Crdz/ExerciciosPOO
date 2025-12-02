@@ -1,4 +1,4 @@
 public interface ImportacaoArquivos {
-    void carregarConfiguracoes(String arqConfig);
+    Boolean carregarConfiguracoes(String arqConfig);
     void importarDados(String arqDadosEntrada);
 }
