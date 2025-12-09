@@ -5,6 +5,7 @@ public class EncomendaExp extends Encomenda {
 
     /* Metodos */
 
+    @Override
     public double calcularFrete(float preco){
         double frete = 0;
         if(prazoEntrega >= 3){

@@ -15,7 +15,7 @@ public class Sistema {
         }
         int opc = -1;
         do{ // Entra no laço para mostrar o menu
-            opc = menu(); // Chama o metodo com opçoes
+            opc = menu(); // Chama o metodo do menu propriamente
 
             new ProcessBuilder("clear").inheritIO().start().waitFor(); // Limpa o terminal
 
@@ -62,20 +62,34 @@ public class Sistema {
     }
 
     public static void listarEncomNormais(Transportadora t){
-        System.out.printf("%10s | %5s | %5s" , "Nº Pedido" , "Peso", "Frete\n");
-        for(int i = 0; i < t.getQtdEncomendas(); i++){
-            Encomenda encom = t.getEncomenda(i);
-            double frete = encom.calcularFrete(t.getPrecoKg());
-            System.out.printf("%10d | %5.2f | %5.2f\n", encom.getNumPedido(), encom.getPeso(), frete);
+        if(t.getQtdEncomendas() != 0){
+            System.out.printf("%10s | %5s | %5s" , "Nº Pedido" , "Peso", "Frete\n");
+            for(int i = 0; i < t.getQtdEncomendas(); i++){
+                Encomenda encom = t.getEncomenda(i);
+                double frete = encom.calcularFrete(t.getPrecoKg());
+                System.out.printf("%10d | %5.2f | %5.2f\n", encom.getNumPedido(), encom.getPeso(), frete);
+            }
+        }
+        else{
+            System.err.println("****************************");
+            System.out.println("ERRO: não existe encomendas!");
+            System.err.println("****************************");
         }
     }
 
     public static void listarEncomExp(Transportadora t){
-        System.out.printf("%10s | %5s | %5s" , "Nº Pedido" , "Peso", "Frete\n");
-        for(int i = 0; i < t.getQtdEncomendasExp(); i++){
-            EncomendaExp encomExp = t.getEncomendaExp(i);
-            double frete = encomExp.calcularFrete(t.getPrecoKg());
-            System.out.printf("%10d | %5.2f | %5.2f\n", encomExp.getNumPedido(), encomExp.getPeso(), frete);
+        if(t.getQtdEncomendasExp() != 0){
+            System.out.printf("%10s | %5s | %5s" , "Nº Pedido" , "Peso", "Frete\n");
+            for(int i = 0; i < t.getQtdEncomendasExp(); i++){
+                EncomendaExp encomExp = t.getEncomendaExp(i);
+                double frete = encomExp.calcularFrete(t.getPrecoKg());
+                System.out.printf("%10d | %5.2f | %5.2f\n", encomExp.getNumPedido(), encomExp.getPeso(), frete);
+            }
+        }
+        else{
+            System.err.println("****************************");
+            System.out.println("ERRO: não existe encomendas!");
+            System.err.println("****************************");
         }
     }
 }

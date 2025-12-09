@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Transportadora implements ImportacaoArquivos {
-    private static int tamanho = 10; // Constante para definir o tamanho
+    private static int tamanho = 1000; // Constante para definir o tamanho
     
     /* Atributos */
     private Encomenda[] vetorEncomendas;
@@ -38,11 +38,15 @@ public class Transportadora implements ImportacaoArquivos {
                 }
             }
             config.close();
-            System.out.println("SUCESSO: arquivo encontrado!");
+            System.out.println("**********************************");
+            System.out.println("SUCESSO: configurações carregadas!");
+            System.err.println("**********************************");
             return true;
         }
         catch(Exception e){ // Se não conseguir mostra o erro
+            System.err.println("****************************");
             System.out.println("ERRO: " + e.getMessage());
+            System.err.println("****************************");
             return false;
         }
     }
@@ -81,10 +85,11 @@ public class Transportadora implements ImportacaoArquivos {
                 }
             }
             entrada.close(); // Fechamento do arquivo
-            System.out.println("Sucesso ao importar todos os dados!"); // Retorna uma msg de sucesso se todo ocorrre bem
         }
         catch(Exception e){ // Se não conseguir mostra o erro
+            System.err.println("****************************");
             System.out.println("ERRO: " + e.getMessage());
+            System.err.println("****************************");
         }
     }
 
